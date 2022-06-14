@@ -64,7 +64,7 @@ resource "azurerm_subnet_network_security_group_association" "private-subnet-nsg
 }
 
 resource "azurerm_private_dns_zone" "private_dns_zone" {
-  name                = "pg-f-server.postgres.database.azure.com"
+  name                = "pgserver.postgres.database.azure.com"
   resource_group_name = azurerm_resource_group.rg.name
 }
 
@@ -75,7 +75,7 @@ resource "azurerm_private_dns_zone_virtual_network_link" "dns-vnet-link" {
   resource_group_name   = azurerm_resource_group.rg.name
 }
 
-resource "azurerm_postgresql_flexible_server" "pg-f-server" {
+resource "azurerm_postgresql_flexible_server" "pgserver" {
   name                   = "pg-f-server"
   resource_group_name    = azurerm_resource_group.rg.name
   location               = azurerm_resource_group.rg.location
