@@ -10,10 +10,6 @@ terraform {
   required_version = ">= 1.1.0"
 }
 
-provider "azurerm" {
-  features {}
-}
-
 resource "azurerm_resource_group" "rg" {
   name     = var.rg_name
   location = var.location
@@ -46,7 +42,7 @@ resource "azurerm_public_ip" "lb-ip" {
   sku="Standard"
 }
 
-// load balancer health probe
+# load balancer health probe
 resource "azurerm_lb_probe" "hp" {
   loadbalancer_id     = azurerm_lb.lb.id
   name                = "hp"
@@ -54,7 +50,7 @@ resource "azurerm_lb_probe" "hp" {
   protocol            =  "Tcp"
 }
 
-// Here we are defining the Load Balancing Rule
+# load lalancing rule
 resource "azurerm_lb_rule" "lb-rule-1" {
   loadbalancer_id                = azurerm_lb.lb.id
   name                           = "rule-1"
