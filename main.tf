@@ -1,14 +1,3 @@
-# Configure the Azure provider
-terraform {
-  required_providers {
-    azurerm = {
-      source  = "hashicorp/azurerm"
-      version = "~> 3.0.2"
-    }
-  }
-
-  required_version = ">= 1.1.0"
-}
 
 resource "azurerm_resource_group" "rg" {
   name     = var.rg_name
@@ -27,6 +16,7 @@ resource "azurerm_lb" "lb" {
     public_ip_address_id = azurerm_public_ip.lb-ip.id
   }
 }
+
 # load balancer backend pool
 resource "azurerm_lb_backend_address_pool" "lb-be-pool" {
   loadbalancer_id = azurerm_lb.lb.id
@@ -50,7 +40,7 @@ resource "azurerm_lb_probe" "hp" {
   protocol            =  "Tcp"
 }
 
-# load lalancing rule
+# load balancing rule
 resource "azurerm_lb_rule" "lb-rule-1" {
   loadbalancer_id                = azurerm_lb.lb.id
   name                           = "rule-1"
@@ -60,4 +50,16 @@ resource "azurerm_lb_rule" "lb-rule-1" {
   frontend_ip_configuration_name = "frontend-ip"
   backend_address_pool_ids       = [ azurerm_lb_backend_address_pool.lb-be-pool.id ]
   probe_id                       = azurerm_lb_probe.hp.id
+}
+
+#load balancer NAT rule
+resource "azurerm_lb_nat_pool" "lb-NAT-pool" {
+  resource_group_name            = azurerm_resource_group.rg.name
+  loadbalancer_id                = azurerm_lb.lb.id
+  name                           = "lb-NAT-pool"
+  protocol                       = "Tcp"
+  frontend_port_start            = 22
+  frontend_port_end              = 32
+  backend_port                   = 22
+  frontend_ip_configuration_name = "frontend-ip"
 }
