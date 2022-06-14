@@ -49,7 +49,7 @@ resource "azurerm_network_security_group" "public-NSG" {
     source_port_range          = "22"
     destination_port_range     = "22"
     source_address_prefix      = "84.94.171.112" # my ip
-    destination_address_prefixes = "10.0.0.0/24"
+    destination_address_prefix = "10.0.0.0/24"
   }
 
   security_rule {
@@ -61,7 +61,7 @@ resource "azurerm_network_security_group" "public-NSG" {
     source_port_range          = "*"
     destination_port_range     = "8080"
     source_address_prefix      = "*"
-    destination_address_prefixes = "10.0.0.0/24"
+    destination_address_prefix = "10.0.0.0/24"
   }
 
   security_rule {
@@ -72,9 +72,15 @@ resource "azurerm_network_security_group" "public-NSG" {
     protocol                   = "*"
     source_port_range          = "8080"
     destination_port_range     = "*"
-    source_address_prefixes      = "10.0.0.0/24"
+    source_address_prefix      = "10.0.0.0/24"
     destination_address_prefix = "*"
   }
+
+}
+
+resource "azurerm_subnet_network_security_group_association" "public-subnet-nsg-association" {
+  subnet_id                 = azurerm_subnet.public-subnet.id
+  network_security_group_id = azurerm_network_security_group.public-NSG.id
 }
 
 
@@ -100,8 +106,8 @@ resource "azurerm_network_security_group" "private-NSG" {
     protocol                   = "Tcp"
     source_port_range          = "22"
     destination_port_range     = "22"
-    source_address_prefixes      = "10.0.0.0/24" # my ip
-    destination_address_prefixes = "10.0.1.0/24"
+    source_address_prefix      = "10.0.0.0/24" # my ip
+    destination_address_prefix = "10.0.1.0/24"
   }
 
   security_rule {
@@ -112,8 +118,8 @@ resource "azurerm_network_security_group" "private-NSG" {
     protocol                   = "*"
     source_port_range          = "*"
     destination_port_range     = "5432"
-    source_address_prefixes      = "10.0.0.0/24"
-    destination_address_prefixes = "10.0.1.0/24"
+    source_address_prefix      = "10.0.0.0/24"
+    destination_address_prefix = "10.0.1.0/24"
   }
 
   security_rule {
@@ -124,7 +130,12 @@ resource "azurerm_network_security_group" "private-NSG" {
     protocol                   = "*"
     source_port_range          = "5432"
     destination_port_range     = "*"
-    source_address_prefixes      = "10.0.1.0/24"
+    source_address_prefix      = "10.0.1.0/24"
     destination_address_prefix = "10.0.0.0/24"
   }
+}
+
+resource "azurerm_subnet_network_security_group_association" "private-subnet-nsg-association" {
+  subnet_id                 = azurerm_subnet.private-subnet.id
+  network_security_group_id = azurerm_network_security_group.private-NSG.id
 }
