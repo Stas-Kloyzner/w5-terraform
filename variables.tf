@@ -9,3 +9,29 @@ variable "location" {
   type        = string
   default     = "eastus"
 }
+
+variable "db_administrator_login" {
+  description = "db administrator username"
+  type        = string
+  default     = "pgadmin"
+}
+variable "db_administrator_password" {
+     description = "db administrator password"
+  type        = string
+  default     = "p@sSw0rD"
+}
+variable "db_zone" {
+  description = "db zone"
+  default     =  1
+}
+
+variable "vmss_admin_username" {
+  description = "vmss admin username"
+  type = string
+  default = "stas"
+}
+variable "vmss_admin_password" {
+  description = "vmss admin password"
+  type        = string
+  default     = "st@K24081993"
+}

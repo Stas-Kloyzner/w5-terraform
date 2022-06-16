@@ -27,9 +27,9 @@ module "pg_f_db" {
   location = azurerm_resource_group.rg.location
   virtual_network_name = module.Vnet.name
   virtual_network_id = module.Vnet.vnet_id
-  administrator_login = "pgadmin"
-  administrator_password = "p@sSw0rD"
-  zone = 1
+  administrator_login = var.db_administrator_login
+  administrator_password = var.db_administrator_password
+  zone = var.db_zone
 }
 #linux vm scale set
 module "vm_scale_set" {
@@ -40,8 +40,8 @@ module "vm_scale_set" {
   subnet_id = module.Vnet.subnet_id
   load_balancer_backend_address_pool_ids = module.lb.load_balancer_backend_address_pool_ids
   load_balancer_inbound_nat_rules_ids = module.lb.load_balancer_inbound_nat_rules_ids
-  admin_username = "stas"
-  admin_password = "st@K24081993"
+  admin_username = var.vmss_admin_username
+  admin_password = var.vmss_admin_password
 
   depends_on = [module.pg_f_db]
 }
