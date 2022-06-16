@@ -1,25 +1,27 @@
-
+#root module main
 resource "azurerm_resource_group" "rg" {
   name     = var.rg_name
   location = var.location
 }
 
 module "Vnet" {
-  source = "modules/network"
+  source = "./modules/network"
 
   resource_group_name= azurerm_resource_group.rg.name
   location = azurerm_resource_group.rg.location
 }
-
+#load balancer
 module "lb" {
-  source = "modules/load-balancer"
+  source = "./modules/load-balancer"
 
   resource_group_name= azurerm_resource_group.rg.name
   location = azurerm_resource_group.rg.location
+  network_interface_id = module.vm_scale_set.network_interface_id
+  ip_configuration_name = module.vm_scale_set.ip_configuration_name
 }
-
+# postgres db
 module "pg_f_db" {
-  source = "modules/db"
+  source = "./modules/db"
 
   resource_group_name= azurerm_resource_group.rg.name
   location = azurerm_resource_group.rg.location
@@ -29,9 +31,9 @@ module "pg_f_db" {
   administrator_password = "p@sSw0rD"
   zone = 1
 }
-
+#linux vm scale set
 module "vm_scale_set" {
-  source = "modules/linux vm scale-set"
+  source = "./modules/linux vm scale-set"
 
   resource_group_name= azurerm_resource_group.rg.name
   location = azurerm_resource_group.rg.location

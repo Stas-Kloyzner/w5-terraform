@@ -37,7 +37,7 @@ resource "azurerm_lb_rule" "lb-rule-1" {
   protocol                       = "Tcp"
   frontend_port                  = 8080
   backend_port                   = 8080
-  frontend_ip_configuration_name = "frontend-ip"
+  frontend_ip_configuration_name = var.frontend_ip_configuration_name
   backend_address_pool_ids       = [ azurerm_lb_backend_address_pool.lb-be-pool.id ]
   probe_id                       = azurerm_lb_probe.hp.id
 }

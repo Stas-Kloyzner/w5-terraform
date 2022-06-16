@@ -6,5 +6,5 @@ variable "frontend_ip_configuration_name" {
   type        = string
   default     = "lb-frontend_ip"
 }
-variable "network_interface_id" {}    #= azurerm_network_interface.nic.id
-variable "ip_configuration_name" {}   #= azurerm_network_interface.nic.ip_configuration[0].name #"internal-ip"
+variable "network_interface_id" {}
+variable "ip_configuration_name" {}

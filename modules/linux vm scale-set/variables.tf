@@ -2,7 +2,7 @@
 variable  "ss_name" {
   type        = string
   description = "scale set name"
-  default     = "stas"
+  default     = "linux-vm-ss"
 }
 variable "resource_group_name" {}
 variable "location" {}
@@ -26,7 +26,6 @@ variable "upgrade_mode" {
   description = "scaleset upgrade mode"
   default     = "Automatic"
 }
-variable "network_interface_name" {}
 # vmss ip configuration varibles
 variable "ip_configuration_name" {
   type        = string

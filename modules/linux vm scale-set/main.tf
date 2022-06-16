@@ -22,7 +22,7 @@ resource "azurerm_linux_virtual_machine_scale_set" "scaleset" {
   }
 
   network_interface {
-    name    = var.network_interface_name
+    name    = azurerm_network_interface.nic.name
     primary = true
 
     ip_configuration {

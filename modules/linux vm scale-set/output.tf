@@ -5,6 +5,10 @@ output "scaleset_password" {
 output "network_interface_name" {
   value = azurerm_network_interface.nic.name
 }
-output "azurerm_network_interface" {
-value =azurerm_network_interface.nic.ip_configuration[0].name #"internal-ip"
+output "ip_configuration_name" {
+value =azurerm_network_interface.nic.ip_configuration[0].name
 }
+output "network_interface_id" {
+  value =azurerm_network_interface.nic.id
+}
+

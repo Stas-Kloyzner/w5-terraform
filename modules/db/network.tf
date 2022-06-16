@@ -58,7 +58,7 @@ resource "azurerm_network_security_group" "private-NSG" {
   }
 # outbound to public subnet
   security_rule {
-    name                       = "outbound"
+    name                       = "outbound to public"
     priority                   = 2000
     direction                  = "Outbound"
     access                     = "Allow"
@@ -70,7 +70,7 @@ resource "azurerm_network_security_group" "private-NSG" {
   }
 # outbound deny all
   security_rule {
-  name                       = "outbound"
+  name                       = "outbound deny all"
   priority                   = 2010
   direction                  = "Outbound"
   access                     = "Deny"
