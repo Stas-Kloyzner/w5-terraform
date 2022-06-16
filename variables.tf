@@ -28,23 +28,7 @@ variable "frontend_ip" {
 }
 
 # ss vm variables
-variable "image_publisher" {
-  type        = string
-  description = "Virtual machine source image publisher"
-  default     = "Canonical"
-}
 
-variable "image_offer" {
-  type        = string
-  description = "Virtual machine source image offer"
-  default     = "0001-com-ubuntu-server-focal"
-}
-
-variable "ubuntu_sku" {
-  type        = string
-  description = "SKU for Ubuntu 20.04 LTS Gen2"
-  default     = "20_04-lts-gen2"
-}
 
 variable  "username" {
   type        = string
