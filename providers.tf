@@ -1,3 +1,4 @@
+#root module providers
 terraform {
   required_providers {
     azurerm = {

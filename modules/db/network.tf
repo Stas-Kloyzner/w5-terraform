@@ -1,4 +1,4 @@
-# pg network
+# db module network
 resource "azurerm_subnet" "private-subnet" {
   name                 = "private-subnet"
   resource_group_name  = var.resource_group_name

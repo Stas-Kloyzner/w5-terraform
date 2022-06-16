@@ -1,4 +1,4 @@
-# vmss variables
+# vmss module variables
 variable  "ss_name" {
   type        = string
   description = "scale set name"

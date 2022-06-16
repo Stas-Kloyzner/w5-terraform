@@ -1,4 +1,4 @@
-#load balancer output
+#load balancer module  output
 output "load_balancer_backend_address_pool_ids" {
   value = [ azurerm_lb_backend_address_pool.lb-be-pool.id ]
 }

@@ -1,4 +1,4 @@
-#load balancer variables
+#load balancer module  variables
 variable "resource_group_name" {}
 variable "location" {}
 variable "frontend_ip_configuration_name" {

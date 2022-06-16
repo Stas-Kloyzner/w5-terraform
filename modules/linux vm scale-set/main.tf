@@ -1,3 +1,4 @@
+# vmss module main
 resource "azurerm_linux_virtual_machine_scale_set" "scaleset" {
   name                = var.ss_name
   resource_group_name = var.resource_group_name

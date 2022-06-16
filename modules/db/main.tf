@@ -1,3 +1,4 @@
+# db module main
 resource "azurerm_postgresql_flexible_server" "pgserver" {
   name                   = var.pg_f_server_name
   resource_group_name    = var.resource_group_name

@@ -1,4 +1,4 @@
-# Resource Group variables
+#root module variables
 variable "rg_name" {
   description = "the name of the resource group to be created"
   type        = string

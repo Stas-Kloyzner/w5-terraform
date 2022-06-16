@@ -1,4 +1,4 @@
-#load balancer
+#load balancer module main
 resource "azurerm_lb" "lb" {
   name                = "lb"
   resource_group_name = var.resource_group_name
