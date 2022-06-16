@@ -1,4 +1,4 @@
 output "ss_password" {
-  value = var.password
+  value = module.vm_scale_set.scaleset_password
   sensitive = true
 }

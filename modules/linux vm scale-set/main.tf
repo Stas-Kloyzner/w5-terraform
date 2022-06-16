@@ -35,6 +35,18 @@ resource "azurerm_linux_virtual_machine_scale_set" "scaleset" {
   }
 }
 
+resource "azurerm_network_interface" "nic" {
+  name                = "ss-nic-1"
+  location            = var.location
+  resource_group_name = var.resource_group_name
+
+  ip_configuration {
+    name                                   = "internal-ip"
+    subnet_id                              = var.subnet_id
+    private_ip_address_allocation          = "Dynamic"
+  }
+}
+
 resource "azurerm_virtual_machine_scale_set_extension" "extension" {
   name                         = "custom-script"
   virtual_machine_scale_set_id = azurerm_linux_virtual_machine_scale_set.scaleset.id

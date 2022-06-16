@@ -26,11 +26,7 @@ variable "upgrade_mode" {
   description = "scaleset upgrade mode"
   default     = "Automatic"
 }
-variable "network_interface_name" {
-  type        = string
-  description = "scaleset network interface name"
-  default     = "ss-nic-1"
-}
+variable "network_interface_name" {}
 # vmss ip configuration varibles
 variable "ip_configuration_name" {
   type        = string
