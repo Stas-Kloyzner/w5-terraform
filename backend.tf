@@ -1,3 +1,4 @@
+#root module backend
 terraform {
   required_providers {
     azurerm = {
