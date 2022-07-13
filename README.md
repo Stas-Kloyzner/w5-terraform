@@ -19,7 +19,7 @@ The file variables.tf contains default paramesers (vm username, password, region
 
 3) To destroy the infrastructure , run in terminal :
 
-> $ terraform destroy <
+> $ terraform destroy 
 ## Requirements
 
 | Name | Version |
