@@ -11,7 +11,7 @@ The file variables.tf contains default paramesers (vm username, password, region
 
 2) from the directory containing the terraform files run in terminal :
 
-> $ terraform init
+>$ terraform init
 
 > $ terraform plan
 
