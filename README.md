@@ -1,9 +1,21 @@
 ## Description
 This is a terraform template for creating an azure infrastructure containing a vm scale set and a managed postgres db service,
 the postgres db is in a private subnet , accessible only from the vms in the public subnet, the vms are all connected to a load balancer.
-The backend is configured t store the tfstate file remotely in azure storage, the storage details should be configured in the backend.tf file.
+
+The backend is configured to store the tfstate file remotely in azure storage, the storage details should be configured in the backend.tf file.
+
 The file variables.tf contains default paramesers (vm username, password, region ...) and should be edited with your own parameters before building the infrastructure.
 
+## Usage
+1) install terraform on your machine (https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/azure-get-started) and configure your azure subscription (https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret)
+
+2) from the directory containing the terraform files run in terminal :
+-$ terraform init
+-$ terraform plan
+-$ terraform apply
+
+3) To destroy the infrastructure , run in terminal :
+-$ terraform destroy
 ## Requirements
 
 | Name | Version |
