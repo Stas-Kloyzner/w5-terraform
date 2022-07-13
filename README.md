@@ -6,6 +6,10 @@ The backend is configured to store the tfstate file remotely in azure storage, t
 
 The file variables.tf contains default paramesers (vm username, password, region ...) and should be edited with your own parameters before building the infrastructure.
 
+The vms are configured to run a custom script file ,from storage , on first startup, this function can be configured or disabled in modules/linux vm scale-set/main.tf file.
+
+Note that a default custom script file is not provided with this repository ,it should be created by yourself if you wish to use one or the configuration to use one should be disabled in modules/linux vm scale-set/main.tf , otherwise terraform will encounter an error and fail to build the infrastructure. 
+
 ## Usage
 1) install terraform on your machine (https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/azure-get-started) and configure your azure subscription (https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret)
 
