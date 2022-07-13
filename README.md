@@ -13,7 +13,9 @@ Note that a default custom script file is not provided with this repository ,it 
 ## Usage
 1) install terraform on your machine (https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/azure-get-started) and configure your azure subscription (https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret)
 
-2) from the directory containing the terraform files run in terminal :
+2) configure azurerm_virtual_machine_scale_set_extension custom script in modules/linux vm scale-set/main.tf 
+
+3) from the directory containing the root main.tf terraform file run in terminal :
 
 >$ terraform init
 
@@ -21,7 +23,7 @@ Note that a default custom script file is not provided with this repository ,it 
 
 >$ terraform apply
 
-3) To destroy the infrastructure , run in terminal :
+4) To destroy the infrastructure , run in terminal :
 
 >$ terraform destroy 
 ## Requirements
