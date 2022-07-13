@@ -11,15 +11,15 @@ The file variables.tf contains default paramesers (vm username, password, region
 
 2) from the directory containing the terraform files run in terminal :
 
--$ terraform init
+> $ terraform init
 
--$ terraform plan
+> $ terraform plan
 
--$ terraform apply
+> $ terraform apply
 
 3) To destroy the infrastructure , run in terminal :
 
--$ terraform destroy
+> $ terraform destroy <
 ## Requirements
 
 | Name | Version |
