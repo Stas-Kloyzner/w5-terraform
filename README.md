@@ -10,11 +10,15 @@ The file variables.tf contains default paramesers (vm username, password, region
 1) install terraform on your machine (https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/azure-get-started) and configure your azure subscription (https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret)
 
 2) from the directory containing the terraform files run in terminal :
+
 -$ terraform init
+
 -$ terraform plan
+
 -$ terraform apply
 
 3) To destroy the infrastructure , run in terminal :
+
 -$ terraform destroy
 ## Requirements
 
